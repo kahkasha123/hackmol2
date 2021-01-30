@@ -1,4 +1,5 @@
 import 'package:decentagram/helper/dimensions.dart';
+import 'package:decentagram/widgets/points_card.dart';
 import 'package:decentagram/widgets/posts_card.dart';
 import 'package:flutter/material.dart';
 
@@ -10,7 +11,7 @@ class ProfileScreen extends StatefulWidget {
 
 class _ProfileScreenState extends State<ProfileScreen> {
 
-bool _ongoingPressed = false;
+bool _postsPressed = false;
 
   @override
   Widget build(BuildContext context) {
@@ -216,13 +217,13 @@ bool _ongoingPressed = false;
                           'Points',style: TextStyle(fontSize: vpH*0.03),
                         ),
                         textColor:
-                            !_ongoingPressed ? Colors.white : Colors.black,
-                        color: !_ongoingPressed
+                            !_postsPressed ? Colors.white : Colors.black,
+                        color: !_postsPressed
                             ? Theme.of(context).primaryColor
                             : Colors.white,
                         onPressed: () => {
                           setState(() {
-                            _ongoingPressed = false;
+                            _postsPressed = false;
                           })
                         },
                       ),),
@@ -230,13 +231,13 @@ bool _ongoingPressed = false;
                       FlatButton(
                         child: Text( 'Posts',style: TextStyle(fontSize: vpH*0.03)),
                         textColor:
-                            _ongoingPressed ? Colors.white : Colors.black,
-                        color: _ongoingPressed
+                            _postsPressed ? Colors.white : Colors.black,
+                        color: _postsPressed
                             ? Theme.of(context).primaryColor
                             : Colors.white,
                         onPressed: () => {
                           setState(() {
-                            _ongoingPressed = true;
+                            _postsPressed = true;
                           })
                         },
                       ),),
@@ -244,12 +245,22 @@ bool _ongoingPressed = false;
                   )),
              
              Container(
-                    child: ListView.builder(physics: BouncingScrollPhysics(),
+                    child:_postsPressed
+                    ? ListView.builder(physics: BouncingScrollPhysics(),
                         shrinkWrap: true,
                         itemCount: 20,
                         scrollDirection: Axis.vertical,
                         itemBuilder: (context, index) {
                           return PostsCard();
+                        },
+                      )
+                      :
+                      ListView.builder(physics: BouncingScrollPhysics(),
+                        shrinkWrap: true,
+                        itemCount: 20,
+                        scrollDirection: Axis.vertical,
+                        itemBuilder: (context, index) {
+                          return PointsCard();
                         },
                       )),
                 
