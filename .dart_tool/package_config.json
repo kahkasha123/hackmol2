@@ -56,6 +56,12 @@
       "languageVersion": "2.10"
     },
     {
+      "name": "flutter_sticky_header",
+      "rootUri": "file:///home/samiksha/Documents/sdk/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_sticky_header-0.5.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.2"
+    },
+    {
       "name": "flutter_test",
       "rootUri": "file:///home/samiksha/Documents/sdk/flutter/packages/flutter_test",
       "packageUri": "lib/",
@@ -128,6 +134,12 @@
       "languageVersion": "2.10"
     },
     {
+      "name": "value_layout_builder",
+      "rootUri": "file:///home/samiksha/Documents/sdk/flutter/.pub-cache/hosted/pub.dartlang.org/value_layout_builder-0.2.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.7"
+    },
+    {
       "name": "vector_math",
       "rootUri": "file:///home/samiksha/Documents/sdk/flutter/.pub-cache/hosted/pub.dartlang.org/vector_math-2.1.0-nullsafety.3",
       "packageUri": "lib/",
@@ -140,7 +152,7 @@
       "languageVersion": "2.7"
     }
   ],
-  "generated": "2021-01-29T20:50:24.397605Z",
+  "generated": "2021-01-30T21:40:18.122599Z",
   "generator": "pub",
   "generatorVersion": "2.10.4"
 }

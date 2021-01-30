@@ -1,5 +1,7 @@
 import 'package:decentagram/helper/dimensions.dart';
+import 'package:decentagram/widgets/posts_card.dart';
 import 'package:flutter/material.dart';
+
 
 class ProfileScreen extends StatefulWidget {
   @override
@@ -7,45 +9,24 @@ class ProfileScreen extends StatefulWidget {
 }
 
 class _ProfileScreenState extends State<ProfileScreen> {
+
+bool _ongoingPressed = false;
+
   @override
   Widget build(BuildContext context) {
     var vpH = getViewportHeight(context);
     var vpW = getViewportWidth(context);
-    return Scaffold(
-      body: SafeArea(
-        child:CustomScrollView(
+    return SafeArea(
+      child: Scaffold(
+        body:CustomScrollView(
         slivers: <Widget>[
           SliverAppBar(
-            expandedHeight: vpH*0.52,
-            pinned: false,
+            expandedHeight: vpH*0.6,
+            pinned: true,
             flexibleSpace: FlexibleSpaceBar(
               collapseMode: CollapseMode.pin,
               centerTitle: true,
-              title:Container(
-               
-                height: vpH*0.03,
-                child: Row(
-                 crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: <Widget>[
-                     Container(
-                       color: Colors.pink,
-                      child:FlatButton(
-                        color: Colors.black,
-                        textColor: Colors.white,
-                        child: Text('Flat Button',),
-                        onPressed: () {},
-                      ),
-                    ),
-                    RaisedButton(
-                      child: Text('Posts',
-                          style: TextStyle(fontSize:vpH*0.02),
-                          ),
-                      onPressed: null,
-                    
-                    ),
-                  ],
-                ),
-              ),
+              title: Text('20 Points'),
               background:Container(
                 color: Colors.white,
                 child:Column(
@@ -165,30 +146,119 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         ), 
                       ],
                     ),
-                  ),],
+                  ),
+                  Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              children: [
+                                Padding(
+                                  padding: EdgeInsets.symmetric(
+                                      vertical: vpH * 0.006,
+                                      horizontal: vpW * 0.02),
+                                  child: Align(
+                                    alignment: Alignment.topLeft,
+                                    child: IconButton(
+                                      icon: Icon(Icons.emoji_emotions),
+                                      iconSize: vpW * 0.080,
+                                      color: Color(0xFF3B5998),
+                                      onPressed: () {},
+                                    ),
+                                  ),
+                                ),
+                                Padding(
+                                  padding: EdgeInsets.symmetric(
+                                      vertical: vpH * 0.006,
+                                      horizontal: vpW * 0.02),
+                                  child: Align(
+                                    alignment: Alignment.topLeft,
+                                    child: IconButton(
+                                      icon: Icon(Icons.emoji_emotions),
+                                      iconSize: vpW * 0.080,
+                                      color: Color(0xFF3B5998),
+                                      onPressed: () {},
+                                    ),
+                                  ),
+                                ),
+                                Padding(
+                                  padding: EdgeInsets.symmetric(
+                                      vertical: vpH * 0.006,
+                                      horizontal: vpW * 0.02),
+                                  child: Align(
+                                    alignment: Alignment.topLeft,
+                                    child: IconButton(
+                                      icon: Icon(Icons.emoji_emotions),
+                                      iconSize: vpW * 0.080,
+                                      color: Color(0xFF3B5998),
+                                      onPressed: () {},
+                                    ),
+                                  ),
+                                ),
+                             
+                              ],
+                            ),
+                ],
             ),),
             ),
           ),
-          SliverFillRemaining(
-            child: Container(
-                child:ListView.builder(
-                physics: BouncingScrollPhysics(),
-                  shrinkWrap: true,
-                  itemCount: 5,
-                  scrollDirection: Axis.horizontal,
-                  itemBuilder: (context, index) {
-                    return Container(
-                      height: vpH*0.02,
-                      margin: EdgeInsets.symmetric(vertical: 10),
-                      color: Colors.grey[300],
-                      alignment: Alignment.center,
-                      child: Text('item'),
-                    );
-                  },
-                )
-          
-            ),
+         
+        SliverFillRemaining(
+          child:SingleChildScrollView(
+
+          child:Column(
+            children:[
+              Padding(
+                  padding: EdgeInsets.symmetric(vertical: vpH*0.005),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Expanded(child: 
+                      FlatButton(
+                        child: Text(
+                          'Points',style: TextStyle(fontSize: vpH*0.03),
+                        ),
+                        textColor:
+                            !_ongoingPressed ? Colors.white : Colors.black,
+                        color: !_ongoingPressed
+                            ? Theme.of(context).primaryColor
+                            : Colors.white,
+                        onPressed: () => {
+                          setState(() {
+                            _ongoingPressed = false;
+                          })
+                        },
+                      ),),
+                     Expanded(child: 
+                      FlatButton(
+                        child: Text( 'Posts',style: TextStyle(fontSize: vpH*0.03)),
+                        textColor:
+                            _ongoingPressed ? Colors.white : Colors.black,
+                        color: _ongoingPressed
+                            ? Theme.of(context).primaryColor
+                            : Colors.white,
+                        onPressed: () => {
+                          setState(() {
+                            _ongoingPressed = true;
+                          })
+                        },
+                      ),),
+                    ],
+                  )),
+             
+             Container(
+                    child: ListView.builder(physics: BouncingScrollPhysics(),
+                        shrinkWrap: true,
+                        itemCount: 20,
+                        scrollDirection: Axis.vertical,
+                        itemBuilder: (context, index) {
+                          return PostsCard();
+                        },
+                      )),
+                
+              
+              
+            ],),
           ),
+        ),
+      
         ],
         
       ),
