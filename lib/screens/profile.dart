@@ -17,11 +17,35 @@ class _ProfileScreenState extends State<ProfileScreen> {
         slivers: <Widget>[
           SliverAppBar(
             expandedHeight: vpH*0.52,
-            pinned: true,
+            pinned: false,
             flexibleSpace: FlexibleSpaceBar(
               collapseMode: CollapseMode.pin,
               centerTitle: true,
-              title: Text('FilledStacks',style: TextStyle(fontSize:vpH*0.02),),
+              title:Container(
+               
+                height: vpH*0.03,
+                child: Row(
+                 crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: <Widget>[
+                     Container(
+                       color: Colors.pink,
+                      child:FlatButton(
+                        color: Colors.black,
+                        textColor: Colors.white,
+                        child: Text('Flat Button',),
+                        onPressed: () {},
+                      ),
+                    ),
+                    RaisedButton(
+                      child: Text('Posts',
+                          style: TextStyle(fontSize:vpH*0.02),
+                          ),
+                      onPressed: null,
+                    
+                    ),
+                  ],
+                ),
+              ),
               background:Container(
                 color: Colors.white,
                 child:Column(
@@ -146,16 +170,23 @@ class _ProfileScreenState extends State<ProfileScreen> {
             ),
           ),
           SliverFillRemaining(
-            child: Column(
-              children: List<int>.generate(6, (index) => index)
-                  .map((index) => Container(
-                        height: 40,
-                        margin: EdgeInsets.symmetric(vertical: 10),
-                        color: Colors.grey[300],
-                        alignment: Alignment.center,
-                        child: Text('$index item'),
-                      ))
-                  .toList(),
+            child: Container(
+                child:ListView.builder(
+                physics: BouncingScrollPhysics(),
+                  shrinkWrap: true,
+                  itemCount: 5,
+                  scrollDirection: Axis.horizontal,
+                  itemBuilder: (context, index) {
+                    return Container(
+                      height: vpH*0.02,
+                      margin: EdgeInsets.symmetric(vertical: 10),
+                      color: Colors.grey[300],
+                      alignment: Alignment.center,
+                      child: Text('item'),
+                    );
+                  },
+                )
+          
             ),
           ),
         ],
