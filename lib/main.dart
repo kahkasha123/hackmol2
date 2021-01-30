@@ -1,3 +1,4 @@
+import 'package:decentagram/screens/profile.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -52,8 +53,16 @@ class _MyHomePageState extends State<MyHomePage> {
         backgroundColor: Colors.white,
         leading: Container(
           margin: EdgeInsets.all(10.0),
-          child: CircleAvatar(
-            backgroundImage:AssetImage('assets/images/dp.jpeg'),
+          child: GestureDetector(
+            onTap: (){
+              Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => ProfileScreen()));
+            },
+            child:CircleAvatar(
+              backgroundImage:AssetImage('assets/images/dp.jpeg'),
+            ),
+            
           ),
         ),
         title: Text(
