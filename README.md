@@ -1,16 +1,9 @@
-# decentagram
+# SocioPoint
 
-A new Flutter project.
+A social dapp for expressing you.
 
-## Getting Started
+## About
+SocioPoint is a decentralized app, build with the idea of expressing your gratitude, by giving credits.
+When your friends experience a positive feeling from you, they awards points to you, such as support, gratitude or empathy. These points in your profile shows your acts of kindness.
+It can help you in gaining other's trust and inspire people to help each other.
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
