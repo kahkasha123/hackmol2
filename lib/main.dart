@@ -1,3 +1,5 @@
+import 'package:decentagram/screens/feed.dart';
+import 'package:decentagram/screens/profile.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -11,7 +13,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Decentagram',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(primarySwatch: Colors.blue,
+      theme: ThemeData(primarySwatch: Colors.green,
       primaryColorBrightness: Brightness.light,
       visualDensity:VisualDensity.adaptivePlatformDensity
       ),
@@ -19,6 +21,7 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+<<<<<<< HEAD
 
 class MyHomePage extends StatefulWidget {
   MyHomePage({Key key, this.title}) : super(key: key);
@@ -81,3 +84,5 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 }
+=======
+>>>>>>> 878bed31afa69880a834fac79ad151b8cbafd352
