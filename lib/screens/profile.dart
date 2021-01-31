@@ -22,7 +22,7 @@ bool _postsPressed = false;
         body:CustomScrollView(
         slivers: <Widget>[
           SliverAppBar(
-            expandedHeight: vpH*0.6,
+            expandedHeight: vpH*0.7,
             pinned: true,
             flexibleSpace: FlexibleSpaceBar(
               collapseMode: CollapseMode.pin,
